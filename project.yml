@@ -1,0 +1,6 @@
+name: p2hacks_team12
+targets:
+  p2hacks_team12:
+    type: application
+    platform: iOS
+    sources: p2hacks_team12
