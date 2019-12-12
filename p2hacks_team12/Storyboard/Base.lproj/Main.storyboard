@@ -20,9 +20,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDg-p3-RPL">
-                                <rect key="frame" x="72" y="432" width="231" height="87"/>
+                                <rect key="frame" x="72" y="424" width="231" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="はじめるボタン"/>
+                                <state key="normal" image="buttonStart"/>
                                 <connections>
                                     <segue destination="at0-fT-yoc" kind="presentation" animates="NO" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="t1t-G6-gQQ"/>
                                 </connections>
@@ -68,7 +68,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="はじめるボタン" width="733" height="277"/>
+        <image name="buttonStart" width="733" height="277"/>
         <image name="起動背景" width="1242" height="2209"/>
     </resources>
 </document>
