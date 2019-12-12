@@ -68,6 +68,22 @@
                                     <action selector="showBrowser:" destination="JUf-tf-CVG" eventType="touchUpInside" id="sSR-JD-DJF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkE-0e-rfz">
+                                <rect key="frame" x="251" y="606" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="子の画面へ"/>
+                                <connections>
+                                    <segue destination="mk5-ic-UgX" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="tGb-eg-8Ff"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sne-ub-PKQ">
+                                <rect key="frame" x="54" y="606" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="親の画面へ"/>
+                                <connections>
+                                    <segue destination="wMt-Y6-IEN" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="K5P-92-BqL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cpb-pv-u0V"/>
@@ -80,6 +96,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4h-28-RcP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="95.200000000000003" y="134.48275862068968"/>
+        </scene>
+        <!--Parent-->
+        <scene sceneID="Xe8-FO-njG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Parent" id="wMt-Y6-IEN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="oIR-TO-Byp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IN0-E7-5pf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="252"/>
         </scene>
         <!--Bluetooth View Controller-->
         <scene sceneID="6Vh-Rg-zL0">
@@ -95,6 +121,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocj-nk-eQI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="86" y="861"/>
+        </scene>
+        <!--Child-->
+        <scene sceneID="tHf-qd-Qmb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Child" id="mk5-ic-UgX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rar-6u-tpe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="938" y="573"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="g3j-qw-6I9">
