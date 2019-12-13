@@ -15,13 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNJ-Cx-xG5">
-                                <rect key="frame" x="103" y="517" width="169" height="30"/>
-                                <state key="normal" title="プレゼントを置きに行く"/>
-                                <connections>
-                                    <segue destination="bGt-Ut-kcZ" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="YQh-cy-XPU"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-0d-9FW">
                                 <rect key="frame" x="205" y="69" width="123" height="30"/>
                                 <state key="normal" title="メッセージを読む"/>
@@ -30,16 +23,21 @@
                                 <rect key="frame" x="47" y="69" width="123" height="30"/>
                                 <state key="normal" title="メッセージを書く"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNJ-Cx-xG5">
+                                <rect key="frame" x="103" y="617" width="169" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="プレゼントを置きに行く"/>
+                                <connections>
+                                    <segue destination="bGt-Ut-kcZ" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="YQh-cy-XPU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="drV-E4-b9W" firstAttribute="top" secondItem="l2W-2k-5ax" secondAttribute="top" constant="69" id="4Zy-ed-xeX"/>
-                            <constraint firstItem="l2W-2k-5ax" firstAttribute="bottom" secondItem="eNJ-Cx-xG5" secondAttribute="bottom" constant="120" id="Aii-Ka-QFx"/>
                             <constraint firstItem="l2W-2k-5ax" firstAttribute="trailing" secondItem="qmq-0d-9FW" secondAttribute="trailing" constant="47" id="G9a-V5-vkh"/>
                             <constraint firstItem="drV-E4-b9W" firstAttribute="leading" secondItem="l2W-2k-5ax" secondAttribute="leading" constant="47" id="MuB-Kv-eDP"/>
                             <constraint firstItem="qmq-0d-9FW" firstAttribute="top" secondItem="l2W-2k-5ax" secondAttribute="top" constant="69" id="gLq-7h-8sU"/>
-                            <constraint firstItem="l2W-2k-5ax" firstAttribute="trailing" secondItem="eNJ-Cx-xG5" secondAttribute="trailing" constant="103" id="gxp-Im-btp"/>
-                            <constraint firstItem="eNJ-Cx-xG5" firstAttribute="leading" secondItem="l2W-2k-5ax" secondAttribute="leading" constant="103" id="mDa-AI-Kro"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l2W-2k-5ax"/>
                     </view>
