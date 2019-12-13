@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGD-9r-XCS">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Carry Present Controller-->
+        <scene sceneID="GA2-Fh-be7">
+            <objects>
+                <viewController id="ZGD-9r-XCS" customClass="CarryPresentController" customModule="p2hacks_team12" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="580-Oc-dyj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynJ-IM-ge2" userLabel="CommentLabel">
+                                <rect key="frame" x="153" y="203.5" width="69.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VolumeView" translatesAutoresizingMaskIntoConstraints="NO" id="He6-cU-96q" userLabel="level1View">
+                                <rect key="frame" x="87.5" y="113.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="NXd-8v-hfb"/>
+                                    <constraint firstAttribute="height" constant="200" id="OB7-UM-kuq"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VolumeView" translatesAutoresizingMaskIntoConstraints="NO" id="jTH-Yw-EDu" userLabel="level2View">
+                                <rect key="frame" x="52.5" y="78.5" width="270" height="270"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="gf0-AO-wNQ"/>
+                                    <constraint firstAttribute="height" constant="270" id="jeg-yN-RHy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VolumeView" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-la-DVh" userLabel="level3View">
+                                <rect key="frame" x="12.5" y="38.5" width="350" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="tSd-qV-CGd"/>
+                                    <constraint firstAttribute="width" constant="350" id="whc-NZ-UTQ"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rz-XI-7qf" userLabel="Clear">
+                                <rect key="frame" x="225" y="517" width="100" height="80"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="3dZ-SG-iEP"/>
+                                    <constraint firstAttribute="width" constant="100" id="FWz-Bh-z5j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="完了">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xVQ-ab-ILP" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="3u6-8R-mOn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsf-oT-d4Y" userLabel="Cancel">
+                                <rect key="frame" x="50" y="517" width="100" height="80"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="UN5-So-Yjk"/>
+                                    <constraint firstAttribute="height" constant="80" id="Ywh-t5-OL9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="中止">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E3H-Ix-RQO" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="gGb-Xx-cnm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ここに絵を置く" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-Py-L6N">
+                                <rect key="frame" x="126" y="440" width="122" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="jTH-Yw-EDu" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-120" id="2Mp-6J-cIR"/>
+                            <constraint firstItem="i8b-la-DVh" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-120" id="5Ff-Zy-J9n"/>
+                            <constraint firstItem="HFZ-OX-RsE" firstAttribute="bottom" secondItem="rsf-oT-d4Y" secondAttribute="bottom" constant="70" id="9z0-iV-xRB"/>
+                            <constraint firstItem="i8b-la-DVh" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="JZk-4C-51U"/>
+                            <constraint firstItem="ynJ-IM-ge2" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-120" id="KDi-Ik-MtH"/>
+                            <constraint firstItem="ynJ-IM-ge2" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="QSD-DB-8fw"/>
+                            <constraint firstItem="jTH-Yw-EDu" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="YLX-ZS-UAX"/>
+                            <constraint firstItem="HFZ-OX-RsE" firstAttribute="trailing" secondItem="7rz-XI-7qf" secondAttribute="trailing" constant="50" id="pI1-O0-C2m"/>
+                            <constraint firstItem="He6-cU-96q" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-120" id="qhM-3Y-p46"/>
+                            <constraint firstItem="HFZ-OX-RsE" firstAttribute="bottom" secondItem="7rz-XI-7qf" secondAttribute="bottom" constant="70" id="voV-Pk-dp3"/>
+                            <constraint firstItem="rsf-oT-d4Y" firstAttribute="leading" secondItem="HFZ-OX-RsE" secondAttribute="leading" constant="50" id="xrL-22-1ue"/>
+                            <constraint firstItem="He6-cU-96q" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="y0c-xm-0rS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HFZ-OX-RsE"/>
+                    </view>
+                    <connections>
+                        <outlet property="ShowValue" destination="ynJ-IM-ge2" id="fVk-kZ-4CB"/>
+                        <outlet property="level1View" destination="He6-cU-96q" id="tzv-TD-ZYp"/>
+                        <outlet property="level2View" destination="jTH-Yw-EDu" id="6di-SU-vMY"/>
+                        <outlet property="level3View" destination="i8b-la-DVh" id="p1P-p6-WeU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dd-yl-4QF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.799999999999997" y="-22.03898050974513"/>
+        </scene>
+        <!--MissionClear-->
+        <scene sceneID="4Hi-sj-6Cc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MissionClear" id="xVQ-ab-ILP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fp2-Zi-2a6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-105"/>
+        </scene>
+        <!--Parent-->
+        <scene sceneID="60G-yu-4v7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Parent" id="E3H-Ix-RQO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nP-tK-m8V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856" y="33"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="VolumeView" width="500" height="496"/>
+    </resources>
+</document>
