@@ -59,15 +59,15 @@ class ParentViewController: UIViewController {
       let widthValue = screenSize.width
       let heightValue = screenSize.height
 
-      textRate.frame = CGRect(x: widthValue/2-170, y: 50, width: 100, height: 40)
-      labelRate.frame = CGRect(x: widthValue/2-70, y: 50, width: 40, height: 40)
-      buttonDraw.frame = CGRect(x: widthValue/2-30, y: 50, width: 200, height: 40)
+      textRate.frame = CGRect(x: widthValue/2-170, y: 200, width: 100, height: 40)
+      labelRate.frame = CGRect(x: widthValue/2-70, y: 200, width: 40, height: 40)
+      buttonDraw.frame = CGRect(x: widthValue/2-30, y: 200, width: 200, height: 40)
 
       var drawWidth = widthValue * 0.8
       if (widthValue > heightValue){
           drawWidth = heightValue * 0.8
       }
-      chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 150, width: drawWidth, height: drawWidth)
+      chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 300, width: drawWidth, height: drawWidth)
 
   }
 
