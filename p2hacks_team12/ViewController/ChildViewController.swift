@@ -11,13 +11,16 @@ class ChildViewController: UIViewController {
     
     @IBOutlet weak var snowView: UIView!
     @IBOutlet weak var countLabel: UILabel!
-    
+    @IBOutlet weak var letter: UILabel!
+    @IBOutlet weak var Xmas: UILabel!
     let date = DateManager()
     var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Xmas.text = "クリスマスまであと"
+        letter.text = "サンタさんへ手紙を書こう!"
     }
     
     override func viewDidAppear(_ animated: Bool) {
