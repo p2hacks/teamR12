@@ -13,6 +13,10 @@ class CarryPresentController: UIViewController {
     @IBOutlet weak var level1View: UIImageView! //音の大きさに応じて画像を表示
     @IBOutlet weak var level2View: UIImageView!
     @IBOutlet weak var level3View: UIImageView!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    
     var recorder: SoundAudioRecorder!
     var timer: Timer!
     var checksound:Float = 0.0 //音の大きさを格納
@@ -25,6 +29,8 @@ class CarryPresentController: UIViewController {
         super.viewDidLoad()
         recorder = SoundAudioRecorder()
         recorder?.start()
+        clearButton.layer.cornerRadius = 15
+        cancelButton.layer.cornerRadius = 15
     }
     
     //初期に一度だけ実行
