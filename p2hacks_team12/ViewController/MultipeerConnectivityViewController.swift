@@ -45,10 +45,5 @@ class MultipeerConnectivityViewController: UIViewController{
         }
     }
     //ボタンタッチしたらデータを送る。これが送っている根元であろう。
-    @IBAction func sayHiButtonTapped(_ sender: Any) {
-        let message = MessageEntity(name: UIDevice.current.name, message: "Hi")
-            let data: Data = try! JSONEncoder().encode(message)
-            BeerKit.sendEvent("message", data: data)
-        }
     }
 

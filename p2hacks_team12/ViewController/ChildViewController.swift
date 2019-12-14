@@ -33,10 +33,6 @@ class ChildViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
       
-        let message = MessageEntity(name: UIDevice.current.name, message: "Hi")
-            let data: Data = try! JSONEncoder().encode(message)
-            BeerKit.sendEvent("message", data: data)
-
         // 表示したい画像の名前(拡張子含む)を引数とする。
                self.view.addBackground(name: "backgroundLetter1.png")
 
@@ -79,7 +75,7 @@ class ChildViewController: UIViewController {
         //カウントダウン
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         datatimer =
-            Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.InputSoundandBrightnessData), userInfo: nil, repeats: true)
+            Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.InputSoundandBrightnessData), userInfo: nil, repeats: true)
         NotificationCenter.default.removeObserver(self,
                                                         name: UIScreen.brightnessDidChangeNotification,
                                                         object: nil)
@@ -130,6 +126,9 @@ class ChildViewController: UIViewController {
             brightnessdata = 3
         }
           print(brightnessdata)
+        let sensorvalue = MessageEntity(name: "Test", sound: String(sounddata), brightness: String(brightnessdata), acceleration: String(acceledata) )
+                                  let data: Data = try! JSONEncoder().encode(sensorvalue)
+                                  BeerKit.sendEvent("message", data: data)
     }
     
     @objc func update(tm: Timer) { //現在の日付を取得
