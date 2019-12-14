@@ -8,65 +8,47 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    @IBOutlet weak var DownAnimationView: UIView!
     @IBOutlet weak var redView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-  sequencialAnimation()
+        snowAnimation()
+        snow2Animation()
         // Do any additional setup after loading the view.
     }
-    func sequencialAnimation() {
-
-           // スケールを最初は０にする
-           redView.transform = CGAffineTransform(scaleX: 0, y: 0)
-
-           // UIView.animateを入れ子にしていく
-        UIView.animate(withDuration: 1.0, delay: 0, options: UIView.AnimationOptions(rawValue: 0), animations: {
-               // ① スケールが1.0になって出現
-               self.redView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-           }, completion: { finished in
-
-               // ①が終わったら、
-            UIView.animate(withDuration: 1.0, delay: 0, options: UIView.AnimationOptions(rawValue: 0), animations: {
-                   // ② 右へ100px動く
-                   self.redView.frame = CGRect(x: self.redView.frame.origin.x + 100,
-                                               y: self.redView.frame.origin.y,
+    func snowAnimation() {
+        self.redView.frame = CGRect(x: 0, y: -1200, width: self.redView.frame.width, height: self.redView.frame.height)
+        UIView.animate(withDuration: 48.0, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+                   //1:下へ300px動く
+                   self.redView.frame = CGRect(x: self.redView.frame.origin.x,
+                                               y: self.redView.frame.origin.y + 2400,
                                                width: self.redView.frame.width,
                                                height: self.redView.frame.height)
                }, completion: { finished in
-
-                   // ②が終わったら、
-                UIView.animate(withDuration: 1.0, delay: 0, options: UIView.AnimationOptions(rawValue: 0), animations: {
-                       // ③ 元の位置に戻る
-                       self.redView.frame = CGRect(x: self.redView.frame.origin.x - 100,
-                                                   y: self.redView.frame.origin.y,
-                                                   width: self.redView.frame.width,
-                                                   height: self.redView.frame.height)
-                   }, completion: { finished in
-
-                       // ③が終わったら
-                    UIView.animate(withDuration: 1.0, delay: 0, options: UIView.AnimationOptions(rawValue: 0), animations: {
-                           // ④ スケールが0になって消える
-                           //（0を入れるとどういうわけかアニメーションしませんでした。そのため0.0001という小さい値をとりあえず入れています。他の方法がわからなかったので、ご存知でしたら教えてくださいm(_ _)m）
-                           self.redView.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
-                       }, completion: { finished in
-
-                           // ④が終わったら、もう一度このメソッドを呼び出す
-                           self.sequencialAnimation()
-                       })
-                   })
+                   self.snowAnimation()
                })
-           })
-       }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
+    func snow2Animation() {
+        
+       
+        self.DownAnimationView.frame = CGRect(x: 0, y: -600, width: self.DownAnimationView.frame.width, height: self.DownAnimationView.frame.height)
+        UIView.animate(withDuration: 24.0, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+            //1:下へ300px動く
+            self.DownAnimationView.frame = CGRect(x: 0, y: self.DownAnimationView.frame.origin.y + 1200, width: self.DownAnimationView.frame.width, height: self.DownAnimationView.frame.height)
+        }, completion: { finished in
+            self.snow2Animation()
+        })
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
