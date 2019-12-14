@@ -9,7 +9,6 @@ import UIKit
 
 class ChildViewController: UIViewController {
     
-   
     @IBOutlet weak var snowView: UIView!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var ParentLetter: UIButton!
@@ -25,11 +24,7 @@ class ChildViewController: UIViewController {
         ParentLetter.setTitle("サンタさんへメッセージを書く！", for: .normal) // ボタンのタイトル
         ParentLetter.setTitleColor(UIColor.red, for: .normal) // タイトルの色
         countLabel.textColor = UIColor.white
-        
-      
     }
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
