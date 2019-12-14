@@ -19,7 +19,6 @@ class ChildViewController: UIViewController {
     var timer: Timer!
     var datatimer: Timer!
     var soundrecoder: SoundAudioRecorder!
-    var acceleration: AccelerationSensor!
     var brightness: BrightnessSensor!
     var checksound: Float = 0.0
     var sounddata = 1
@@ -34,9 +33,8 @@ class ChildViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         soundrecoder = SoundAudioRecorder()
-        acceleration = AccelerationSensor()
         brightness = BrightnessSensor()
-        
+    
         if motionmanager.isAccelerometerAvailable {
             // intervalの設定 [sec]
             motionmanager.accelerometerUpdateInterval = 1.0
