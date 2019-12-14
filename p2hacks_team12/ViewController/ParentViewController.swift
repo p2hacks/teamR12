@@ -32,11 +32,14 @@ class ParentViewController: UIViewController {
     private let chartViewThree:ChartView = ChartView()
     @IBOutlet weak var dangerRate: UILabel!
     @IBOutlet weak var degreeOfRisk: UILabel!
+    @IBOutlet weak var datalabel: UILabel!
+    var timer:Timer!
     let accelerationNumber = 3//仮に値入れてる
     let soundNumber = 1//仮に値入れてる
     let brightnessNumber = 1//仮に値入れてる
     let sum = 0
     var per:Int = 0
+    var count = 0
     
     
     
@@ -171,12 +174,37 @@ class ParentViewController: UIViewController {
      }*/
     
     override func viewWillAppear(_ animated: Bool) {
+      timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.dataSession), userInfo: nil, repeats: true)
+      timer.fire()
         drawChart()
         drawChartOne()
         drawChartTwo()
         drawChartThree()
-        
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer.invalidate()
+    }
+    
+    @objc func dataSession(tm: Timer){
+           count+=1
+           BeerKit.onEvent("message") { (peerId, data) in
+                guard let data = data,
+                   let message = try? JSONDecoder().decode(MessageEntity.self, from: data) else {
+                        self.datalabel.text = "error"
+                       return
+                }
+               DispatchQueue.main.async {
+                     self.messages.append(message)
+                   let inputdata = self.messages[self.count-1]
+                   self.datalabel.text = "音=\(inputdata.sound),明るさ=\(inputdata.brightness),加速度=\(inputdata.acceleration)"
+               }
+           }
+
+           
+       }
+
     
     private func changeScreen(){
         let screenSize: CGRect = UIScreen.main.bounds
