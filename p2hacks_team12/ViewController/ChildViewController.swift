@@ -13,18 +13,30 @@ class ChildViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var letter: UILabel!
     @IBOutlet weak var Xmas: UILabel!
+    @IBOutlet weak var ParentLetter: UIButton!
     let date = DateManager()
     var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        Xmas.textColor = UIColor.white
         Xmas.text = "クリスマスまであと"
+        letter.textColor = UIColor.white
         letter.text = "サンタさんへ手紙を書こう!"
+        ParentLetter.setTitle("サンタさんへメッセージを書く！", for: .normal) // ボタンのタイトル
+        ParentLetter.setTitleColor(UIColor.white, for: .normal) // タイトルの色
+        countLabel.textColor = UIColor.white
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        let a = UITextViewReter(frame: self.view.frame)
+        a.frame =  CGRect(x: 0.0, y: 150.0, width: 350.0, height: 500.0)
+        //カスタマイズViewを生成
+                self.view.addSubview(a)
+       
 
     }
     
