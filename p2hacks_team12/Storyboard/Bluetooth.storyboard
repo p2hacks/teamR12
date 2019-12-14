@@ -15,29 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkE-0e-rfz">
-                                <rect key="frame" x="251" y="606" width="77" height="30"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundGray" translatesAutoresizingMaskIntoConstraints="NO" id="kLM-Wd-bnq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="子の画面へ"/>
-                                <connections>
-                                    <segue destination="mk5-ic-UgX" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="tGb-eg-8Ff"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sne-ub-PKQ">
-                                <rect key="frame" x="54" y="606" width="77" height="30"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sne-ub-PKQ">
+                                <rect key="frame" x="16" y="279" width="140" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="親の画面へ"/>
+                                <state key="normal" title="親の画面へ" image="iconParent"/>
                                 <connections>
                                     <segue destination="wMt-Y6-IEN" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="K5P-92-BqL"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b2H-83-ejT">
-                                <rect key="frame" x="0.0" y="147" width="375" height="439"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ms-WK-5Me">
-                                <rect key="frame" x="42" y="87" width="38" height="35"/>
+                                <rect key="frame" x="42" y="87" width="89" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -51,13 +42,20 @@
                                     <action selector="sayHiButtonTapped:" destination="JUf-tf-CVG" eventType="touchUpInside" id="SIZ-Sa-cXA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkE-0e-rfz">
+                                <rect key="frame" x="219" y="279" width="140" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="子の画面へ" image="iconKid"/>
+                                <connections>
+                                    <segue destination="mk5-ic-UgX" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="tGb-eg-8Ff"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cpb-pv-u0V"/>
                     </view>
                     <connections>
                         <outlet property="deviceNameLabel" destination="3Ms-WK-5Me" id="sbo-bX-wIf"/>
-                        <outlet property="tableView" destination="b2H-83-ejT" id="H6r-ap-iue"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4h-28-RcP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -162,4 +160,9 @@
             <point key="canvasLocation" x="2062" y="-230"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="backgroundGray" width="1243" height="2206"/>
+        <image name="iconKid" width="440" height="440"/>
+        <image name="iconParent" width="440" height="440"/>
+    </resources>
 </document>
