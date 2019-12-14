@@ -13,14 +13,12 @@ class ChildViewController: UIViewController {
     
     @IBOutlet weak var snowView: UIView!
     @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var letter: UILabel!
-    @IBOutlet weak var Xmas: UILabel!
+    @IBOutlet weak var ParentLetter: UIButton!
     let date = DateManager()
     let motionmanager = CMMotionManager()
     var timer: Timer!
     var datatimer: Timer!
     var soundrecoder: SoundAudioRecorder!
-    var acceleration: AccelerationSensor!
     var brightness: BrightnessSensor!
     var checksound: Float = 0.0
     var sounddata = 1
@@ -34,16 +32,17 @@ class ChildViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         let message = MessageEntity(name: UIDevice.current.name, message: "Hi")
             let data: Data = try! JSONEncoder().encode(message)
             BeerKit.sendEvent("message", data: data)
-        
-        
+
+        // 表示したい画像の名前(拡張子含む)を引数とする。
+               self.view.addBackground(name: "backgroundLetter1.png")
+
         soundrecoder = SoundAudioRecorder()
-        acceleration = AccelerationSensor()
         brightness = BrightnessSensor()
-        
+    
         if motionmanager.isAccelerometerAvailable {
             // intervalの設定 [sec]
             motionmanager.accelerometerUpdateInterval = 1.0
@@ -61,11 +60,21 @@ class ChildViewController: UIViewController {
                                                     object: nil)
         soundrecoder?.start()
         // Do any additional setup after loading the view.
-        Xmas.text = "クリスマスまであと"
-        letter.text = "サンタさんへ手紙を書こう!"
+        ParentLetter.setTitle("サンタさんへメッセージを書く！", for: .normal) // ボタンのタイトル
+        ParentLetter.setTitleColor(UIColor.red, for: .normal) // タイトルの色
+        countLabel.textColor = UIColor.white
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let a = UITextViewReter(frame: self.view.frame)
+        a.frame =  CGRect(x: 0.0, y: 150.0, width: 350.0, height: 500.0)
+        //カスタマイズViewを生成
+                self.view.addSubview(a)
     }
     
     override func viewWillAppear(_ animated: Bool) { //一度だけ処理を実行
+
         super.viewWillAppear(true)
         //カウントダウン
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
@@ -131,12 +140,24 @@ class ChildViewController: UIViewController {
         formatter.unitsStyle = .brief
         // 使用する単位　.minuteのみにすると232,071minのように出力．
         formatter.allowedUnits = [.day]
+        print(count)
         // 作成したformatterでtimeintervalをstringに変換
         print(formatter.string(from: count2)!) // →5mths 10days 3hr 44min 28sec
         //時間をラベルに表示
         countLabel.text = formatter.string(from: count2)
     }
     
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -35,7 +35,7 @@ class UITextViewReter: UIView {
         // フォント
         tv.font = UIFont(name: "Arial",size: 19.0)
         // 文字を編集不可能にする
-        tv.isEditable = false
+        //tv.isEditable = false
     }
 
     required init(coder aDecoder: NSCoder) {
