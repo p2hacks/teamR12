@@ -20,15 +20,23 @@ class ChildViewController: UIViewController {
     var datatimer: Timer!
     var soundrecoder: SoundAudioRecorder!
     var acceleration: AccelerationSensor!
+    var brightness: BrightnessSensor!
     var checksound: Float = 0.0
     var sounddata = 1
     var acceledata = 1
+    var brightnessdata = 1
     var accelX: Double = 0.0
     var accelY: Double = 0.0
     var accelZ: Double = 0.0
+    var brightnessValue: CGFloat = 0.0
     var counttime = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        soundrecoder = SoundAudioRecorder()
+        acceleration = AccelerationSensor()
+        brightness = BrightnessSensor()
+        
         if motionmanager.isAccelerometerAvailable {
             // intervalの設定 [sec]
             motionmanager.accelerometerUpdateInterval = 1.0
@@ -39,8 +47,11 @@ class ChildViewController: UIViewController {
                     self.InputAccelerationdata(acceleration: accelData!.acceleration)
             })
         }
-        soundrecoder = SoundAudioRecorder()
-        acceleration = AccelerationSensor()
+        brightness.updateBrightnessdata()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(brightness.screenBrightnessDidChange(_:)),
+                                                    name: UIScreen.brightnessDidChangeNotification,
+                                                    object: nil)
         soundrecoder?.start()
         // Do any additional setup after loading the view.
         Xmas.text = "クリスマスまであと"
@@ -52,7 +63,10 @@ class ChildViewController: UIViewController {
         //カウントダウン
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         datatimer =
-            Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.InputSoundData), userInfo: nil, repeats: true)
+            Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.InputSoundandBrightnessData), userInfo: nil, repeats: true)
+        NotificationCenter.default.removeObserver(self,
+                                                        name: UIScreen.brightnessDidChangeNotification,
+                                                        object: nil)
         datatimer.fire()
         timer.fire()
     }
@@ -62,10 +76,10 @@ class ChildViewController: UIViewController {
         timer.invalidate()
     }
     
-    func InputAccelerationdata(acceleration: CMAcceleration){
+    func InputAccelerationdata(acceleration: CMAcceleration){ //子供端末で加速度の値を取得して格納
         accelX = acceleration.x
         accelY = acceleration.y
-        if((accelX < 0.1 && accelX > -0.1)&&(accelY < 0.1 && accelY > -0.1)){
+        if((accelX < 0.1 && accelX > -0.1)&&(accelY < 0.1 && accelY > -0.1)){ //加速度の大きさによってシグナルを送信
             counttime += 1
             print(counttime)
             if(counttime < 5){
@@ -81,27 +95,36 @@ class ChildViewController: UIViewController {
             acceledata = 1
         }
     }
-    @objc func InputSoundData(tm: Timer){ //子供端末で取得したセンサーの値を格納
-        checksound = soundrecoder.level
-        if(checksound > 0.10){
+    @objc func InputSoundandBrightnessData(tm: Timer){ //子供端末で取得したセンサーの値を格納
+        checksound = soundrecoder.level //音の大きさによってシグナルを送信
+        if(checksound > 0.10) {
             sounddata = 3
-        }else if(checksound > 0.03){
+        }else if(checksound > 0.03) {
             sounddata = 2
         }else{
             sounddata = 1
         }
-        // print(sounddata)
-        
+         brightness.updateBrightnessdata() //画面の明るさに応じてシグナルを送信
+        let lightvalue = brightness.brightnessValue
+        if(lightvalue > 0.7) {
+            brightnessdata = 1
+        }else if(lightvalue > 0.3 && lightvalue <= 0.7) {
+            brightnessdata = 2
+        }else{
+            brightnessdata = 3
+        }
+          print(brightnessdata)
     }
+    
     @objc func update(tm: Timer) { //現在の日付を取得
         let count: Int = date.getXmaxTimeInterval()
         let count2: TimeInterval = TimeInterval(count)
         let formatter = DateComponentsFormatter()
-        // 表示フォーマットを変更．.positionalや.fullで表示が変わります．
+        // 表示フォーマットを変更．.positionalや.fullで表示が変わる
         formatter.unitsStyle = .brief
-        // 使用する単位　.minuteのみにすると232,071minのように出力されます．
+        // 使用する単位　.minuteのみにすると232,071minのように出力．
         formatter.allowedUnits = [.day]
-        // 作成したformatterでtimeintervalをstringに変換します．
+        // 作成したformatterでtimeintervalをstringに変換
         print(formatter.string(from: count2)!) // →5mths 10days 3hr 44min 28sec
         //時間をラベルに表示
         countLabel.text = formatter.string(from: count2)

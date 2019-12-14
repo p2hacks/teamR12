@@ -15,10 +15,9 @@
 
 import UIKit
 
-class BrightnessViewController: UIViewController {
+class BrightnessSensor: UIViewController {
     
-    @IBOutlet weak var brightnessLabel: UILabel!
-    @IBOutlet weak var brightnessStepper: UIStepper!
+    var brightnessValue: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +25,7 @@ class BrightnessViewController: UIViewController {
         
         // Setup UIStepper
         let screen = UIScreen.main
-        self.brightnessStepper.value = Double(screen.brightness)
-        
-        self.updateBrightnessLabel()
+        self.updateBrightnessdata()
         
         // Observe screen brightness
         NotificationCenter.default.addObserver(self,
@@ -52,22 +49,19 @@ class BrightnessViewController: UIViewController {
     }
     
     // MARK: - Internal methods
-    func updateBrightnessLabel() {
+    func updateBrightnessdata() {
         let screen = UIScreen.main
-        self.brightnessLabel.text = "".appendingFormat("%.2f", screen.brightness)
+        brightnessValue = screen.brightness
+        print("明るさは\(brightnessValue)")
     }
     
     @objc func screenBrightnessDidChange(_ notification: Notification) {
         if let screen = notification.object {
-            self.brightnessLabel.text = "".appendingFormat("%.2f", (screen as AnyObject).brightness)
+            brightnessValue = (screen as AnyObject).brightness
+            print("明るさは\(brightnessValue)")
         }
     }
     
-    // MARK: - Action methods
-    @IBAction func stepperDidTap(_ stepper: UIStepper) {
-        UIScreen.main.brightness = CGFloat(stepper.value)
-        self.updateBrightnessLabel()
-    }
     
     /*
      // MARK: - Navigation
