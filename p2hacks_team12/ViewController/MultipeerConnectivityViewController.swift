@@ -8,26 +8,14 @@
 import UIKit
 import BeerKit
 
-class MultipeerConnectivityViewController: UIViewController,UITableViewDataSource{
+class MultipeerConnectivityViewController: UIViewController{
     
     
     @IBOutlet weak var accelerationLabel: UILabel!
     @IBOutlet weak var brightnessLabel: UILabel!
     @IBOutlet weak var soundLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
-    //tableviewの列数
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return messages.count
-        }
-       
-    //tableviewの要素
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-        cell.textLabel?.text = messages[indexPath.row].name
-        cell.detailTextLabel?.text = messages[indexPath.row].message
-        return cell
-    }
+   
     
     
 //相手の名前を格納する変数
@@ -37,7 +25,6 @@ class MultipeerConnectivityViewController: UIViewController,UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
         //相手のid表示
         BeerKit.onConnect { (myPeerId, peerId) in
             DispatchQueue.main.async {
@@ -53,7 +40,7 @@ class MultipeerConnectivityViewController: UIViewController,UITableViewDataSourc
             self.messages.append(message)
             
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.accelerationLabel.text = "accelerationLabel"
             }
         }
     }

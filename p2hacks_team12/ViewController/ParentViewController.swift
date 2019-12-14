@@ -6,17 +6,32 @@
 //
 
 import UIKit
-
+import BeerKit
 class ParentViewController: UIViewController {
     
     private let textRate:UITextView = UITextView()
     private let labelRate:UILabel = UILabel()
     private let buttonDraw:UIButton = UIButton()
     private let chartView:ChartView = ChartView()
-    
-    
+    var childview: ChildViewController!
+    //MessageEntityの2つの要素を格納するmesseges
+    var messages: [MessageEntity] = []
+   
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        childview = ChildViewController()
+        BeerKit.onEvent("message") { (peerId, data) in
+            guard let data = data,
+                let message = try? JSONDecoder().decode(MessageEntity.self, from: data) else {
+                    return
+             }
+            self.messages.append(message)
+            
+            DispatchQueue.main.async {
+                self.labelRate.text = "ああああああああ"
+            }
+        }
         
         textRate.layer.cornerRadius = 10
         textRate.layer.borderColor = UIColor.lightGray.cgColor
