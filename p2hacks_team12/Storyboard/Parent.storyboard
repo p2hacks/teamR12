@@ -15,33 +15,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmq-0d-9FW">
-                                <rect key="frame" x="205" y="69" width="123" height="30"/>
-                                <state key="normal" title="メッセージを読む"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drV-E4-b9W">
-                                <rect key="frame" x="47" y="69" width="123" height="30"/>
-                                <state key="normal" title="メッセージを書く"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNJ-Cx-xG5">
-                                <rect key="frame" x="103" y="617" width="169" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNJ-Cx-xG5">
+                                <rect key="frame" x="103" y="512" width="169" height="30"/>
                                 <state key="normal" title="プレゼントを置きに行く"/>
                                 <connections>
                                     <segue destination="bGt-Ut-kcZ" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="YQh-cy-XPU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="危険度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDw-zF-HG0">
+                                <rect key="frame" x="121" y="303" width="95" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcf-3w-Jpt">
+                                <rect key="frame" x="243" y="303" width="13" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="drV-E4-b9W" firstAttribute="top" secondItem="l2W-2k-5ax" secondAttribute="top" constant="69" id="4Zy-ed-xeX"/>
-                            <constraint firstItem="l2W-2k-5ax" firstAttribute="trailing" secondItem="qmq-0d-9FW" secondAttribute="trailing" constant="47" id="G9a-V5-vkh"/>
-                            <constraint firstItem="drV-E4-b9W" firstAttribute="leading" secondItem="l2W-2k-5ax" secondAttribute="leading" constant="47" id="MuB-Kv-eDP"/>
-                            <constraint firstItem="qmq-0d-9FW" firstAttribute="top" secondItem="l2W-2k-5ax" secondAttribute="top" constant="69" id="gLq-7h-8sU"/>
+                            <constraint firstItem="l2W-2k-5ax" firstAttribute="trailing" secondItem="eNJ-Cx-xG5" secondAttribute="trailing" constant="103" id="3cP-HL-Nb2"/>
+                            <constraint firstItem="eNJ-Cx-xG5" firstAttribute="leading" secondItem="l2W-2k-5ax" secondAttribute="leading" constant="103" id="h1D-Zq-FFe"/>
+                            <constraint firstItem="l2W-2k-5ax" firstAttribute="bottom" secondItem="eNJ-Cx-xG5" secondAttribute="bottom" constant="125" id="k14-KB-YQI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l2W-2k-5ax"/>
                     </view>
                     <navigationItem key="navigationItem" id="8Pf-Tq-kMn"/>
+                    <connections>
+                        <outlet property="dangerRate" destination="TDw-zF-HG0" id="miD-Jv-67b"/>
+                        <outlet property="degreeOfRisk" destination="tcf-3w-Jpt" id="quN-PY-WlI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VkX-cO-3P7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
