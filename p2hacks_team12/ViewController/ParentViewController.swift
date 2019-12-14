@@ -25,22 +25,25 @@ class ParentViewController: UIViewController {
     private let labelRateThree:UILabel = UILabel()
     private let buttonDrawThree:UIButton = UIButton()
     private let chartViewThree:ChartView = ChartView()
-    
     @IBOutlet weak var dangerRate: UILabel!
     @IBOutlet weak var degreeOfRisk: UILabel!
-    
-    
+    let accelerationNumber = 3//仮に値入れてる
+    let soundNumber = 1//仮に値入れてる
+    let brightnessNumber = 1//仮に値入れてる
+    let sum = 0
+    var per:Int = 0
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         textRate.layer.cornerRadius = 10
         textRate.layer.borderColor = UIColor.lightGray.cgColor
         textRate.layer.borderWidth = 0.5
         textRate.keyboardType = .numberPad
-        textRate.text = "75" //とりあえずデフォル値は75%
+        per = sum/9 * 100
+        print(per)
+        textRate.text = String(per) //全体のパーセント
         textRate.font = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(textRate)
         
@@ -59,7 +62,14 @@ class ParentViewController: UIViewController {
         textRateOne.layer.borderColor = UIColor.lightGray.cgColor
         textRateOne.layer.borderWidth = 0.5
         textRateOne.keyboardType = .numberPad
-        textRateOne.text = "30" //とりあえずデフォル値は30%
+        switch accelerationNumber {
+        case 1:
+            textRateOne.text = "33" //とりあえずデフォル値は30%
+        case 2:
+            textRateOne.text = "66" //とりあえずデフォル値は30%
+        default:
+            textRateOne.text = "100" //とりあえずデフォル値は30%
+        }
         textRateOne.font = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(textRateOne)
         
@@ -78,7 +88,15 @@ class ParentViewController: UIViewController {
         textRateTwo.layer.borderColor = UIColor.lightGray.cgColor
         textRateTwo.layer.borderWidth = 0.5
         textRateTwo.keyboardType = .numberPad
-        textRateTwo.text = "50" //とりあえずデフォル値は50%
+        switch soundNumber{
+            case 1:
+            textRateTwo.text = "33"
+            case 2:
+            textRateTwo.text = "66"
+            default:
+            textRateTwo.text = "100"
+            
+        }
         textRateTwo.font = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(textRateTwo)
         
@@ -97,10 +115,16 @@ class ParentViewController: UIViewController {
         textRateThree.layer.borderColor = UIColor.lightGray.cgColor
         textRateThree.layer.borderWidth = 0.5
         textRateThree.keyboardType = .numberPad
-        textRateThree.text = "10" //とりあえずデフォル値は10%
+        switch brightnessNumber {
+        case 1:
+            textRateThree.text = "33" //とりあえずデフォル値は30%
+        case 2:
+            textRateThree.text = "66" //とりあえずデフォル値は30%
+        default:
+            textRateThree.text = "100" //とりあえずデフォル値は30%
+        }
         textRateThree.font = UIFont.systemFont(ofSize: 16)
         self.view.addSubview(textRateThree)
-        
         labelRateThree.text = "%"
         self.view.addSubview(labelRateThree)
         buttonDrawThree.setTitle("グラフ表示", for: .normal)
