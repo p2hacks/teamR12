@@ -9,7 +9,7 @@ import Foundation
 import AVFoundation
 import AudioUnit
 
-class ParentAudioRecorder: NSObject {
+class SoundAudioRecorder: NSObject {
     var level: Float  = 0.0
     var frameCount: UInt32 = 0
 
@@ -99,7 +99,7 @@ class ParentAudioRecorder: NSObject {
         frameCount,
         ioData ) -> OSStatus in
         
-        let audioObject = unsafeBitCast(inRefCon, to: ParentAudioRecorder.self)
+        let audioObject = unsafeBitCast(inRefCon, to: SoundAudioRecorder.self)
 
         if let au = audioObject._audioUnit {
             // マイクから取得したデータを取り出す
