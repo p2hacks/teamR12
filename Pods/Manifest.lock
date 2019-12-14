@@ -1,0 +1,16 @@
+PODS:
+  - BeerKit (1.0.2)
+
+DEPENDENCIES:
+  - BeerKit
+
+SPEC REPOS:
+  trunk:
+    - BeerKit
+
+SPEC CHECKSUMS:
+  BeerKit: d6d139620f0ba7a558f014758ebea54d27b06be7
+
+PODFILE CHECKSUM: 3c188a0452b20d826a3301d54d5c1f5e2f6990e4
+
+COCOAPODS: 1.8.4

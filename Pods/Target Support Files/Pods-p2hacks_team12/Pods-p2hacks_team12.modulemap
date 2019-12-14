@@ -1,0 +1,6 @@
+framework module Pods_p2hacks_team12 {
+  umbrella header "Pods-p2hacks_team12-umbrella.h"
+
+  export *
+  module * { export * }
+}
