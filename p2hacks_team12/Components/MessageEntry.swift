@@ -9,7 +9,7 @@ import Foundation
 
 struct MessageEntity: Codable {
     let name: String
-    let sound: String
-    let brightness: String
-    let acceleration: String
+    let sound: Int
+    let brightness: Int
+    let acceleration: Int
 }

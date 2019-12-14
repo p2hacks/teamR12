@@ -10,7 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     @IBOutlet weak var DownAnimationView: UIView!
-    @IBOutlet weak var redView: UIView!
+    @IBOutlet weak var TopAnimationView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         snowAnimation()
@@ -18,13 +18,13 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func snowAnimation() {
-        self.redView.frame = CGRect(x: 0, y: -1200, width: self.redView.frame.width, height: self.redView.frame.height)
+        self.TopAnimationView.frame = CGRect(x: 0, y: -1200, width: self.TopAnimationView.frame.width, height: self.TopAnimationView.frame.height)
         UIView.animate(withDuration: 48.0, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
                    //1:下へ300px動く
-                   self.redView.frame = CGRect(x: self.redView.frame.origin.x,
-                                               y: self.redView.frame.origin.y + 2400,
-                                               width: self.redView.frame.width,
-                                               height: self.redView.frame.height)
+                   self.TopAnimationView.frame = CGRect(x: self.TopAnimationView.frame.origin.x,
+                                               y: self.TopAnimationView.frame.origin.y + 2400,
+                                               width: self.TopAnimationView.frame.width,
+                                               height: self.TopAnimationView.frame.height)
                }, completion: { finished in
                    self.snowAnimation()
                })

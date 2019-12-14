@@ -19,7 +19,7 @@ class ChartView: UIView {
 
         //グラフをアニメーションで表示
         let caBasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        caBasicAnimation.duration = 2.0
+        caBasicAnimation.duration = 1.0
         caBasicAnimation.fromValue = 0.0
         caBasicAnimation.toValue = 1.0
         caShapeLayerForValue.add(caBasicAnimation, forKey: "chartAnimation")
@@ -32,7 +32,7 @@ class ChartView: UIView {
 
         //グラフをアニメーションで表示
         let caBasicAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        caBasicAnimation.duration = 2.0
+        caBasicAnimation.duration = 1.0
         caBasicAnimation.fromValue = 0.0
         caBasicAnimation.toValue = 1.0
         caShapeLayerForValue.add(caBasicAnimation, forKey: "chartAnimation")

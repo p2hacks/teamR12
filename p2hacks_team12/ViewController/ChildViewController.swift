@@ -110,11 +110,11 @@ class ChildViewController: UIViewController {
     @objc func InputSoundandBrightnessData(tm: Timer){ //子供端末で取得したセンサーの値を格納
         checksound = soundrecoder.level //音の大きさによってシグナルを送信
         if(checksound > 0.10) {
-            sounddata = 3
+            sounddata = 1
         }else if(checksound > 0.03) {
             sounddata = 2
         }else{
-            sounddata = 1
+            sounddata = 3
         }
          brightness.updateBrightnessdata() //画面の明るさに応じてシグナルを送信
         let lightvalue = brightness.brightnessValue
@@ -126,7 +126,7 @@ class ChildViewController: UIViewController {
             brightnessdata = 3
         }
           print(brightnessdata)
-        let sensorvalue = MessageEntity(name: "Test", sound: String(sounddata), brightness: String(brightnessdata), acceleration: String(acceledata) )
+        let sensorvalue = MessageEntity(name: "Test", sound: sounddata, brightness: brightnessdata, acceleration: acceledata )
                                   let data: Data = try! JSONEncoder().encode(sensorvalue)
                                   BeerKit.sendEvent("message", data: data)
     }
