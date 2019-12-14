@@ -16,6 +16,7 @@ class DateManager {
     private let calendar = Calendar(identifier: .gregorian)
 
     init(){
+        
         formatter.timeZone = TimeZone.ReferenceType.local
         formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
         dateStr = ""

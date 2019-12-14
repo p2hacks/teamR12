@@ -18,7 +18,7 @@ class ReterViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         //カスタマイズViewを生成
-         self.view.addSubview(UITextViewReter(frame: self.view.frame))
+        // self.view.addSubview(UITextViewReter(frame: self.view.frame))
     }
     
      override func didReceiveMemoryWarning() {
