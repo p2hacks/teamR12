@@ -8,8 +8,15 @@
 import Foundation
 import UIKit
 import CoreMotion
+<<<<<<< HEAD
 
 class AccelerationSensor: UIViewController {
+=======
+ 
+class ViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView!
+
+>>>>>>> beerKit
     
     // MotionManager
     let motionManager = CMMotionManager()

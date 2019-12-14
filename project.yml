@@ -4,3 +4,5 @@ targets:
     type: application
     platform: iOS
     sources: p2hacks_team12
+base:
+PODS_ROOT: ${SRCROOT}/Pods
