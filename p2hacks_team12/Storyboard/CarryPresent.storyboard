@@ -19,12 +19,6 @@
                                 <rect key="frame" x="-39" y="-7" width="454" height="715"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynJ-IM-ge2" userLabel="CommentLabel">
-                                <rect key="frame" x="153.5" y="233.5" width="68" height="20"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VolumeView" translatesAutoresizingMaskIntoConstraints="NO" id="He6-cU-96q" userLabel="level1View">
                                 <rect key="frame" x="87.5" y="143.5" width="200" height="200"/>
                                 <constraints>
@@ -83,6 +77,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Evd-cR-OPH">
+                                <rect key="frame" x="87" y="197" width="213" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -90,8 +88,6 @@
                             <constraint firstItem="i8b-la-DVh" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-90" id="5Ff-Zy-J9n"/>
                             <constraint firstItem="HFZ-OX-RsE" firstAttribute="bottom" secondItem="rsf-oT-d4Y" secondAttribute="bottom" constant="70" id="9z0-iV-xRB"/>
                             <constraint firstItem="i8b-la-DVh" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="JZk-4C-51U"/>
-                            <constraint firstItem="ynJ-IM-ge2" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-90" id="KDi-Ik-MtH"/>
-                            <constraint firstItem="ynJ-IM-ge2" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="QSD-DB-8fw"/>
                             <constraint firstItem="jTH-Yw-EDu" firstAttribute="centerX" secondItem="580-Oc-dyj" secondAttribute="centerX" id="YLX-ZS-UAX"/>
                             <constraint firstItem="HFZ-OX-RsE" firstAttribute="trailing" secondItem="7rz-XI-7qf" secondAttribute="trailing" constant="50" id="pI1-O0-C2m"/>
                             <constraint firstItem="He6-cU-96q" firstAttribute="centerY" secondItem="580-Oc-dyj" secondAttribute="centerY" constant="-90" id="qhM-3Y-p46"/>
@@ -102,12 +98,12 @@
                         <viewLayoutGuide key="safeArea" id="HFZ-OX-RsE"/>
                     </view>
                     <connections>
-                        <outlet property="ShowValue" destination="ynJ-IM-ge2" id="fVk-kZ-4CB"/>
                         <outlet property="cancelButton" destination="rsf-oT-d4Y" id="Ang-g5-ALy"/>
                         <outlet property="clearButton" destination="7rz-XI-7qf" id="fnY-nf-F9x"/>
                         <outlet property="level1View" destination="He6-cU-96q" id="tzv-TD-ZYp"/>
                         <outlet property="level2View" destination="jTH-Yw-EDu" id="6di-SU-vMY"/>
                         <outlet property="level3View" destination="i8b-la-DVh" id="p1P-p6-WeU"/>
+                        <outlet property="showImage" destination="Evd-cR-OPH" id="yjb-8u-SJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4dd-yl-4QF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
