@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreMotion
+import BeerKit
 
 class ChildViewController: UIViewController {
     
@@ -33,6 +34,12 @@ class ChildViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let message = MessageEntity(name: UIDevice.current.name, message: "Hi")
+            let data: Data = try! JSONEncoder().encode(message)
+            BeerKit.sendEvent("message", data: data)
+        
+        
         soundrecoder = SoundAudioRecorder()
         acceleration = AccelerationSensor()
         brightness = BrightnessSensor()
