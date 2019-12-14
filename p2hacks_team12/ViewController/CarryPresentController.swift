@@ -9,10 +9,16 @@ import UIKit
 
 class CarryPresentController: UIViewController {
     
-    @IBOutlet weak var ShowValue: UILabel! //音の大きさによってメッセージを送る
+ 
+    @IBOutlet weak var showImage: UIImageView!
+    //音の大きさによってメッセージを送る
     @IBOutlet weak var level1View: UIImageView! //音の大きさに応じて画像を表示
     @IBOutlet weak var level2View: UIImageView!
     @IBOutlet weak var level3View: UIImageView!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    
     var recorder: SoundAudioRecorder!
     var timer: Timer!
     var checksound:Float = 0.0 //音の大きさを格納
@@ -25,6 +31,8 @@ class CarryPresentController: UIViewController {
         super.viewDidLoad()
         recorder = SoundAudioRecorder()
         recorder?.start()
+        clearButton.layer.cornerRadius = 15
+        cancelButton.layer.cornerRadius = 15
     }
     
     //初期に一度だけ実行
@@ -35,7 +43,9 @@ class CarryPresentController: UIViewController {
         level1View.isHidden = false
         level2View.isHidden = true
         level3View.isHidden = true
-        ShowValue.text = "安心！"
+        
+       showImage.image = UIImage(named: "statement3")
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,17 +63,17 @@ class CarryPresentController: UIViewController {
                     level2View.isHidden = false
                     level3View.isHidden = true
                     checktest = 3
-                    ShowValue.text = "危険！"
+                   showImage.image = UIImage(named: "statement1")
                     counttimer = 0
                 }
                 level2View.isHidden = false
                 level3View.isHidden = true
-                ShowValue.text = "起きそう・・・"
+                showImage.image = UIImage(named: "statement2")
             }else{
                 level2View.isHidden = true
                 level3View.isHidden = true
                 checktest = 1
-                ShowValue.text = "安心！"
+               showImage.image = UIImage(named: "statement3")
                 counttimer = 0
             }
         }else if(checksound > levelboader2to3 || checktest == 3){
@@ -73,12 +83,12 @@ class CarryPresentController: UIViewController {
                 counttimer += 1/180
                 level2View.isHidden = false
                 level3View.isHidden = false
-                ShowValue.text = "危険！"
+               showImage.image = UIImage(named: "statement1")
             }else{
                 level2View.isHidden = true
                 level3View.isHidden = true
                 checktest = 1
-                ShowValue.text = "安心！"
+                showImage.image = UIImage(named: "statement3")
                 counttimer = 0
             }
         }else { counttimer = 0}

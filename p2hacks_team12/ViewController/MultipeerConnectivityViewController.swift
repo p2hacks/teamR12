@@ -40,7 +40,7 @@ class MultipeerConnectivityViewController: UIViewController{
             self.messages.append(message)
             
             DispatchQueue.main.async {
-                self.accelerationLabel.text = "accelerationLabel"
+               // self.accelerationLabel.text = "accelerationLabel"
             }
         }
     }
