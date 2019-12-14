@@ -267,7 +267,7 @@ class ParentViewController: UIViewController {
         if (widthValue > heightValue){
             drawWidth = heightValue * 0.8
         }
-        chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 120, width: drawWidth, height: drawWidth)
+        chartView.frame = CGRect(x: widthValue/2-drawWidth/2, y: 110, width: drawWidth, height: drawWidth)
         
         
     }

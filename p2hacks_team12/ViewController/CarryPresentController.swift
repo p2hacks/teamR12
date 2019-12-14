@@ -22,8 +22,8 @@ class CarryPresentController: UIViewController {
     var recorder: SoundAudioRecorder!
     var timer: Timer!
     var checksound:Float = 0.0 //音の大きさを格納
-    var levelboader1to2:Float = 0.2 //1から2に警告が変わるライン
-    var levelboader2to3:Float = 0.3 //2から3に警告が変わるライン
+    var levelboader1to2:Float = 0.08 //1から2に警告が変わるライン
+    var levelboader2to3:Float = 0.15 //2から3に警告が変わるライン
     var counttimer = 0.0 //一定時間をカウント
     var checktest = 1 //警告の切り替え信号
     

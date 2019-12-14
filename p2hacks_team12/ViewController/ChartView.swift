@@ -44,9 +44,9 @@ class ChartView: UIView {
     private func drawBaseChart(){
         let shapeFrame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         caShapeLayerForBase.frame = shapeFrame
-        caShapeLayerForBase.strokeColor = UIColor(displayP3Red: 1, green: 0.8, blue: 0.4, alpha: 1.0).cgColor
+        caShapeLayerForBase.strokeColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 1.0).cgColor
         caShapeLayerForBase.fillColor = UIColor.clear.cgColor
-        caShapeLayerForBase.lineWidth = 50
+        caShapeLayerForBase.lineWidth = 35
         caShapeLayerForBase.lineCap = .round
 
         let startAngle:CGFloat = CGFloat(0.0)
@@ -59,7 +59,7 @@ class ChartView: UIView {
     private func drawBaseChartMini(){
         let shapeFrame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         caShapeLayerForBase.frame = shapeFrame
-        caShapeLayerForBase.strokeColor = UIColor(displayP3Red: 1, green: 0.8, blue: 0.4, alpha: 1.0).cgColor
+        caShapeLayerForBase.strokeColor = UIColor(displayP3Red: 1, green: 1, blue: 1, alpha: 1.0).cgColor
         caShapeLayerForBase.fillColor = UIColor.clear.cgColor
         caShapeLayerForBase.lineWidth = 20
         caShapeLayerForBase.lineCap = .round
@@ -83,7 +83,7 @@ class ChartView: UIView {
         //CAShareLayerのデザインを定義
         caShapeLayerForValue.strokeColor = UIColor(displayP3Red: 1, green: 0.4, blue: 0.4, alpha: 1).cgColor
         caShapeLayerForValue.fillColor = UIColor.clear.cgColor
-        caShapeLayerForValue.lineWidth = 50
+        caShapeLayerForValue.lineWidth = 35
         caShapeLayerForValue.lineCap = .round
 
         //開始位置を時計の0時の位置にする
