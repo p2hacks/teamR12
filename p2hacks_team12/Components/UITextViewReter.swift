@@ -7,10 +7,10 @@
 
 import UIKit
 
-class UITextViewReter: UIView {
+class UITextViewReter: UIView, UITextFieldDelegate {
+    let tv = UITextView(frame: CGRect(x: 40, y: 72, width: 300, height: 430))
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let tv = UITextView(frame: CGRect(x: 40, y: 72, width: 300, height: 430))
         self.addSubview(tv)
 
         //tv.center = self.center
@@ -36,7 +36,26 @@ class UITextViewReter: UIView {
         tv.font = UIFont(name: "Arial",size: 19.0)
         // 文字を編集不可能にする
         //tv.isEditable = false
+        // ツールバー生成
+             let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+             // スタイルを設定
+             toolBar.barStyle = UIBarStyle.default
+             // 画面幅に合わせてサイズを変更
+             toolBar.sizeToFit()
+             // 閉じるボタンを右に配置するためのスペース?
+             let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+             // 閉じるボタン
+             let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(UITextViewReter.commitButtonTapped))
+             // スペース、閉じるボタンを右側に配置
+             toolBar.items = [spacer, commitButton]
+             // textViewのキーボードにツールバーを設定
+             tv.inputAccessoryView = toolBar
+             
     }
+    //ボタンを押したら閉じる
+    @objc func commitButtonTapped() {
+           self.tv.endEditing(true)
+       }
 
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
