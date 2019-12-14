@@ -10,7 +10,9 @@ import UIKit
 import CoreMotion
  
 class ViewController: UIViewController {
- 
+    @IBOutlet weak var tableView: UITableView!
+
+    
     // MotionManager
     let motionManager = CMMotionManager()
  
