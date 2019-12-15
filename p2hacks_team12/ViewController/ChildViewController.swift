@@ -32,13 +32,13 @@ class ChildViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         // 表示したい画像の名前(拡張子含む)を引数とする。
-               self.view.addBackground(name: "backgroundLetter1.png")
-
+        self.view.addBackground(name: "backgroundLetter1.png")
+        
         soundrecoder = SoundAudioRecorder()
         brightness = BrightnessSensor()
-    
+        
         if motionmanager.isAccelerometerAvailable {
             // intervalの設定 [sec]
             motionmanager.accelerometerUpdateInterval = 1.0
@@ -52,8 +52,8 @@ class ChildViewController: UIViewController {
         brightness.updateBrightnessdata()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(brightness.screenBrightnessDidChange(_:)),
-                                                    name: UIScreen.brightnessDidChangeNotification,
-                                                    object: nil)
+                                               name: UIScreen.brightnessDidChangeNotification,
+                                               object: nil)
         soundrecoder?.start()
         // Do any additional setup after loading the view.
         ParentLetter.setTitle("サンタさんへメッセージを書く！", for: .normal) // ボタンのタイトル
@@ -66,19 +66,19 @@ class ChildViewController: UIViewController {
         let a = UITextViewReter(frame: self.view.frame)
         a.frame =  CGRect(x: 0.0, y: 150.0, width: 350.0, height: 500.0)
         //カスタマイズViewを生成
-                self.view.addSubview(a)
+        self.view.addSubview(a)
     }
     
     override func viewWillAppear(_ animated: Bool) { //一度だけ処理を実行
-
+        
         super.viewWillAppear(true)
         //カウントダウン
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
         datatimer =
             Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.InputSoundandBrightnessData), userInfo: nil, repeats: true)
         NotificationCenter.default.removeObserver(self,
-                                                        name: UIScreen.brightnessDidChangeNotification,
-                                                        object: nil)
+                                                  name: UIScreen.brightnessDidChangeNotification,
+                                                  object: nil)
         datatimer.fire()
         timer.fire()
     }
@@ -116,7 +116,7 @@ class ChildViewController: UIViewController {
         }else{
             sounddata = 3
         }
-         brightness.updateBrightnessdata() //画面の明るさに応じてシグナルを送信
+        brightness.updateBrightnessdata() //画面の明るさに応じてシグナルを送信
         let lightvalue = brightness.brightnessValue
         if(lightvalue > 0.7) {
             brightnessdata = 1
@@ -125,10 +125,10 @@ class ChildViewController: UIViewController {
         }else{
             brightnessdata = 3
         }
-          print(brightnessdata)
+        print(brightnessdata)
         let sensorvalue = MessageEntity(name: "Test", sound: sounddata, brightness: brightnessdata, acceleration: acceledata )
-                                  let data: Data = try! JSONEncoder().encode(sensorvalue)
-                                  BeerKit.sendEvent("message", data: data)
+        let data: Data = try! JSONEncoder().encode(sensorvalue)
+        BeerKit.sendEvent("message", data: data)
     }
     
     @objc func update(tm: Timer) { //現在の日付を取得
@@ -146,17 +146,17 @@ class ChildViewController: UIViewController {
         countLabel.text = formatter.string(from: count2)
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

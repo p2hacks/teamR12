@@ -45,9 +45,9 @@ class ParentViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-              self.view.addBackground(name: "backgroundGray.png")
+        self.view.addBackground(name: "backgroundGray.png")
         childview = ChildViewController()
-      
+        
         switch sum {
         case 1:
             textRate.text = "11" //とりあえずデフォル値は30%
@@ -87,7 +87,7 @@ class ParentViewController: UIViewController {
         }
         textRateOne.font = UIFont.systemFont(ofSize: 16)
         labelRateOne.text = "%"
-
+        
         
         self.view.addSubview(chartViewOne)
         
@@ -109,7 +109,7 @@ class ParentViewController: UIViewController {
         textRateTwo.font = UIFont.systemFont(ofSize: 16)
         
         labelRateTwo.text = "%"
- 
+        
         self.view.addSubview(chartViewTwo)
         
         changeScreenTwo()
@@ -212,32 +212,32 @@ class ParentViewController: UIViewController {
                 case 2:
                     self.textRate.text = "22" //とりあえずデフォル値は30%
                     self.degreeOfRisk.text = "小"
-
+                    
                 case 3:
                     self.textRate.text = "33" //とりあえずデフォル値は30%
                     self.degreeOfRisk.text = "小"
-
+                    
                 case 4:
                     self.textRate.text = "44" //とりあえずデフォル値は30%
                     self.degreeOfRisk.text = "中"
-
+                    
                 case 5:
                     self.textRate.text = "55" //とりあえずデフォル値は30%
-                        self.degreeOfRisk.text = "中"
+                    self.degreeOfRisk.text = "中"
                 case 6:
                     self.textRate.text = "66" //とりあえずデフォル値は30%
-                        self.degreeOfRisk.text = "中"
+                    self.degreeOfRisk.text = "中"
                 case 7:
                     self.textRate.text = "77" //とりあえずデフォル値は30%
-                        self.degreeOfRisk.text = "大"
+                    self.degreeOfRisk.text = "大"
                 case 8:
                     self.textRate.text = "88" //とりあえずデフォル値は30%
                     self.degreeOfRisk.text = "大"
-
+                    
                 default:
                     self.textRate.text = "100" //とりあえずデフォル値は30%
                     self.degreeOfRisk.text = "大"
-
+                    
                 }
                 self.view.addSubview(self.degreeOfRisk)
                 self.labelRate.text = "%"

@@ -15,10 +15,10 @@ class MultipeerConnectivityViewController: UIViewController{
     @IBOutlet weak var brightnessLabel: UILabel!
     @IBOutlet weak var soundLabel: UILabel!
     
-   
     
     
-//相手の名前を格納する変数
+    
+    //相手の名前を格納する変数
     @IBOutlet weak var deviceNameLabel: UILabel!
     //MessageEntityの2つの要素を格納するmesseges
     var messages: [MessageEntity] = []
@@ -31,19 +31,19 @@ class MultipeerConnectivityViewController: UIViewController{
                 self.deviceNameLabel.text = peerId.displayName
             }
         }
-            //わからん
+        //わからん
         BeerKit.onEvent("message") { (peerId, data) in
             guard let data = data,
                 let message = try? JSONDecoder().decode(MessageEntity.self, from: data) else {
                     return
-             }
+            }
             self.messages.append(message)
             
             DispatchQueue.main.async {
-               // self.accelerationLabel.text = "accelerationLabel"
+                // self.accelerationLabel.text = "accelerationLabel"
             }
         }
     }
     //ボタンタッチしたらデータを送る。これが送っている根元であろう。
-    }
+}
 

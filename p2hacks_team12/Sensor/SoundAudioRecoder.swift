@@ -12,7 +12,7 @@ import AudioUnit
 class SoundAudioRecorder: NSObject {
     var level: Float  = 0.0
     var frameCount: UInt32 = 0
-
+    
     private var _audioUnit: AudioUnit?
     private var _abl: AudioBufferList?
     private let kInputBus: UInt32 =  1
@@ -51,12 +51,12 @@ class SoundAudioRecorder: NSObject {
                              kInputBus,
                              &enable,
                              UInt32(MemoryLayout<UInt32>.size))
-
+        
         // マイクから取り出すデータフォーマット
         // 32bit float, linear PCM
         guard let fmt = AVAudioFormat(standardFormatWithSampleRate: 44100,
                                       channels: UInt32(kNumberOfChannels)) else {
-            return
+                                        return
         }
         
         // RemoteIO のマイクバスから取り出すフォーマットを設定
@@ -66,7 +66,7 @@ class SoundAudioRecorder: NSObject {
                              kInputBus,
                              fmt.streamDescription,
                              UInt32(MemoryLayout<AudioStreamBasicDescription>.size))
-
+        
         // AudioUnit に録音コールバックを設定
         var inputCallbackStruct
             = AURenderCallbackStruct(inputProc: recordingCallback,
@@ -86,7 +86,7 @@ class SoundAudioRecorder: NSObject {
                 mNumberChannels: fmt.channelCount,
                 mDataByteSize: fmt.streamDescription.pointee.mBytesPerFrame,
                 mData: nil))
-
+        
         AudioUnitInitialize(au)
         AudioOutputUnitStart(au)
     }
@@ -100,15 +100,15 @@ class SoundAudioRecorder: NSObject {
         ioData ) -> OSStatus in
         
         let audioObject = unsafeBitCast(inRefCon, to: SoundAudioRecorder.self)
-
+        
         if let au = audioObject._audioUnit {
             // マイクから取得したデータを取り出す
             AudioUnitRender(audioObject._audioUnit!,
-                                ioActionFlags,
-                                inTimeStamp,
-                                inBusNumber,
-                                frameCount,
-                                &audioObject._abl!)
+                            ioActionFlags,
+                            inTimeStamp,
+                            inBusNumber,
+                            frameCount,
+                            &audioObject._abl!)
         }
         audioObject.frameCount = frameCount
         let inputDataPtr = UnsafeMutableAudioBufferListPointer(&audioObject._abl!)
