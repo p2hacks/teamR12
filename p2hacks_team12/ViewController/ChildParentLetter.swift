@@ -5,4 +5,4 @@
 //  Created by りゅうや on 2019/12/14.
 //
 
-import Foundation
+import Foundation //親から手紙が送られたら実装する部分であった

@@ -20,18 +20,18 @@ class MainViewController: UIViewController {
     func snowAnimation() {
         self.TopAnimationView.frame = CGRect(x: 0, y: -1200, width: self.TopAnimationView.frame.width, height: self.TopAnimationView.frame.height)
         UIView.animate(withDuration: 48.0, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                   //1:下へ300px動く
-                   self.TopAnimationView.frame = CGRect(x: self.TopAnimationView.frame.origin.x,
-                                               y: self.TopAnimationView.frame.origin.y + 2400,
-                                               width: self.TopAnimationView.frame.width,
-                                               height: self.TopAnimationView.frame.height)
-               }, completion: { finished in
-                   self.snowAnimation()
-               })
+            //1:下へ300px動く
+            self.TopAnimationView.frame = CGRect(x: self.TopAnimationView.frame.origin.x,
+                                                 y: self.TopAnimationView.frame.origin.y + 2400,
+                                                 width: self.TopAnimationView.frame.width,
+                                                 height: self.TopAnimationView.frame.height)
+        }, completion: { finished in
+            self.snowAnimation()
+        })
     }
     func snow2Animation() {
         
-       
+        
         self.DownAnimationView.frame = CGRect(x: 0, y: -600, width: self.DownAnimationView.frame.width, height: self.DownAnimationView.frame.height)
         UIView.animate(withDuration: 24.0, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
             //1:下へ300px動く

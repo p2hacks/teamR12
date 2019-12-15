@@ -10,8 +10,8 @@ import UIKit
 import CoreMotion
 
 class AccelerationSensor: UIViewController {
-
-
+    
+    
     // MotionManager
     let motionManager = CMMotionManager()
     

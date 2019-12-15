@@ -9,7 +9,7 @@ import UIKit
 
 class CarryPresentController: UIViewController {
     
- 
+    
     @IBOutlet weak var showImage: UIImageView!
     //音の大きさによってメッセージを送る
     @IBOutlet weak var level1View: UIImageView! //音の大きさに応じて画像を表示
@@ -44,8 +44,8 @@ class CarryPresentController: UIViewController {
         level2View.isHidden = true
         level3View.isHidden = true
         
-       showImage.image = UIImage(named: "statement3")
-
+        showImage.image = UIImage(named: "statement3")
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,7 +63,7 @@ class CarryPresentController: UIViewController {
                     level2View.isHidden = false
                     level3View.isHidden = true
                     checktest = 3
-                   showImage.image = UIImage(named: "statement1")
+                    showImage.image = UIImage(named: "statement1")
                     counttimer = 0
                 }
                 level2View.isHidden = false
@@ -73,17 +73,17 @@ class CarryPresentController: UIViewController {
                 level2View.isHidden = true
                 level3View.isHidden = true
                 checktest = 1
-               showImage.image = UIImage(named: "statement3")
+                showImage.image = UIImage(named: "statement3")
                 counttimer = 0
             }
         }else if(checksound > levelboader2to3 || checktest == 3){
-             print("value=\(checksound)")
+            print("value=\(checksound)")
             checktest = 3
             if(counttimer < 4){
                 counttimer += 1/180
                 level2View.isHidden = false
                 level3View.isHidden = false
-               showImage.image = UIImage(named: "statement1")
+                showImage.image = UIImage(named: "statement1")
             }else{
                 level2View.isHidden = true
                 level3View.isHidden = true
