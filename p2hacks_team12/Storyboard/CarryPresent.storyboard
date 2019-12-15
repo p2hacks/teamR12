@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZGD-9r-XCS">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Carry Present Controller-->
+        <scene sceneID="GA2-Fh-be7">
+            <objects>
+                <viewController id="ZGD-9r-XCS" customClass="CarryPresentController" customModule="p2hacks_team12" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="580-Oc-dyj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundGray" translatesAutoresizingMaskIntoConstraints="NO" id="Bkl-mL-BMv">
+                                <rect key="frame" x="-39" y="-7" width="454" height="715"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dangerCircle2" translatesAutoresizingMaskIntoConstraints="NO" id="He6-cU-96q" userLabel="level1View">
+                                <rect key="frame" x="53" y="130" width="270" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dangerCircle3" translatesAutoresizingMaskIntoConstraints="NO" id="jTH-Yw-EDu" userLabel="level2View">
+                                <rect key="frame" x="53" y="130" width="270" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dangerCircle1" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-la-DVh" userLabel="level3View">
+                                <rect key="frame" x="53" y="130" width="270" height="270"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Evd-cR-OPH">
+                                <rect key="frame" x="86" y="213" width="213" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rz-XI-7qf" userLabel="Clear">
+                                <rect key="frame" x="229" y="524" width="100" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <state key="normal" title="完了">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="xVQ-ab-ILP" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="3u6-8R-mOn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsf-oT-d4Y" userLabel="Cancel">
+                                <rect key="frame" x="52" y="523" width="100" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
+                                <state key="normal" title="中止">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="E3H-Ix-RQO" kind="presentation" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="gGb-Xx-cnm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HFZ-OX-RsE"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="rsf-oT-d4Y" id="Ang-g5-ALy"/>
+                        <outlet property="clearButton" destination="7rz-XI-7qf" id="fnY-nf-F9x"/>
+                        <outlet property="level1View" destination="He6-cU-96q" id="tzv-TD-ZYp"/>
+                        <outlet property="level2View" destination="jTH-Yw-EDu" id="6di-SU-vMY"/>
+                        <outlet property="level3View" destination="i8b-la-DVh" id="p1P-p6-WeU"/>
+                        <outlet property="showImage" destination="Evd-cR-OPH" id="yjb-8u-SJI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4dd-yl-4QF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="96.799999999999997" y="-22.03898050974513"/>
+        </scene>
+        <!--MissionClear-->
+        <scene sceneID="4Hi-sj-6Cc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MissionClear" id="xVQ-ab-ILP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fp2-Zi-2a6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="887" y="-105"/>
+        </scene>
+        <!--Parent-->
+        <scene sceneID="60G-yu-4v7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Parent" id="E3H-Ix-RQO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1nP-tK-m8V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856" y="33"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backgroundGray" width="1243" height="2206"/>
+        <image name="dangerCircle1" width="941" height="941"/>
+        <image name="dangerCircle2" width="940" height="939"/>
+        <image name="dangerCircle3" width="940" height="939"/>
+    </resources>
+</document>
